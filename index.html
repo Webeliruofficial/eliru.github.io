@@ -20,7 +20,7 @@ a:hover {
 
 a:focus,
 a:hover {
-  opacity: .70;
+  opacity: .7;
   text-decoration: none;
 }
 
@@ -31,8 +31,8 @@ a:hover {
   color: #fff;
   text-shadow: none;
   background-color: transparent;
-  border: 0px solid #fff;
-  border-radius: 0px;
+  border: 1px solid #fff;
+  border-radius: 2px;
 }
 
 /*
@@ -41,22 +41,22 @@ a:hover {
 
 html,
 body {
-  height: 0%;
+  height: 100%;
   background-color: #fff;
 }
 body {
   font-family: Roboto, sans-serif;
   color: #fff;
   text-align: center;
-  text-shadow: 0 0px 0px rgba(0,0,0,.0);
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
-  width: 0%;
-  height: 0%;
-  min-height: 0%;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 .site-wrapper-inner {
   display: table-cell;
@@ -70,7 +70,7 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 0px;
+  padding: 30px;
 }
 
 /*
@@ -83,12 +83,12 @@ body {
 }
 .masthead-nav > li + li,
 .masthead-brand > li + li {
-  margin-left: 2px;
+  margin-left: 20px;
 }
 .masthead-nav > li > a,
 .masthead-brand > li > a {
-  padding-right: 30;
-  padding-left: 30;
+  padding-right: 0;
+  padding-left: 0;
   font-size: 38px;
   font-weight: bold;
   color: #fff;
@@ -106,7 +106,7 @@ body {
   text-decoration: none;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 568px) {
   .masthead-brand {
     float: left;
   }
@@ -115,12 +115,12 @@ body {
   }
 
 .overlay {
-  background: rgba(500, 300, 200, 0.40);
+  background: rgba(0, 0, 0, 0.4);
   width:100%;
   height:100%;
   position:absolute;
-  top:100;
-  left:100;
+  top:0;
+  left:0;
 }
 
 /*
@@ -128,16 +128,16 @@ body {
  */
 
 .cover {
-  padding: 0 200px;
+  padding: 0 20px;
 }
 .cover .btn-lg {
-  padding: 135px 500px;
+  padding: 15px 50px;
   font-weight: bold;
 }
 
 .cover-heading {
-  font-size: 300px;
-  padding-bottom: 300px;
+  font-size: 30px;
+  padding-bottom: 30px;
 }
 
 small {
@@ -147,10 +147,10 @@ small {
 #clock div {
     display: inline-block;
     font-size: 10px;
-    font-weight: 700;
-    margin:0 80px 200px 80px;
+    font-weight: 600;
+    margin:0 8px 20px 8px;
     text-transform: uppercase;
-    letter-spacing: 200px;
+    letter-spacing: 2px;
     line-height: 30px;
 }
 #clock span {
@@ -158,7 +158,7 @@ small {
     font-size: 32px;
     font-weight: 100;
     padding: 30px 0;
-    border-bottom: 10px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 /*
@@ -177,7 +177,7 @@ small {
   }
   .mastfoot {
     position: fixed;
-    bottom: 100;
+    bottom: 0;
   }
   .site-wrapper-inner {
     vertical-align: middle;
@@ -192,7 +192,7 @@ small {
   }
     #clock span {
         font-size: 72px;
-        padding: 300px 0;
+        padding: 30px 0;
     }
     #clock div {
         margin:0 25px 30px 25px;
@@ -315,7 +315,7 @@ a:hover {
 
 html,
 body {
-  height: 100%;
+  height: 0%;
   background-color: black;
 }
 body {
@@ -344,6 +344,6 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 20px;
+  padding: 0px;
 }
 </style>
