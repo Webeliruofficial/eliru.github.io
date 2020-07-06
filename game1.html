@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Ta Toe</title>
+    </head>
+    <body onLoad="startGame()">
+        <table align="center" >
+            <h1 align="center"> ELIRU - ИГРЫ/TIC TAC</h1>
+            <div id="message" align="center"></div>
+            <tr>
+            <td onClick="nextMove(this)"class="q" id="q1"></td>
+            <td onClick = "nextMove(this)" class="q" id="q2"></td>
+            <td onClick="nextMove(this)"class="q" id="q3"></td>
+</tr>
+                <tr><td onClick="nextMove(this)" class="q" id="q4"></td>
+            <td onClick="nextMove(this)" class="q" id="q5"></td>
+            <td onClick="nextMove(this)" class="q" id="q6"></td></tr>
+            <tr>    <td onClick="nextMove(this)"class="q" id="q7"></td>
+            <td onClick="nextMove(this)"class="q" id="q8"></td>
+            <td onClick="nextMove(this)"class="q" id="q9"></td></tr>
+        
+        </table>
+        <div id="score" align="center">Player One- 0 : 0 -Player Two</div> 
+    </body>
+</html>
+<script>document.playerOneScore=0;
+document.playerTwoScore=0;
+
+function startGame(){
+    document.count = 0;
+    
+    for(let i = 1; i<=9; i++){
+        clearBoard(i);
+    }
+    document.gameOver = false;
+    document.turn = "X";
+    setMessage(document.turn + " gets to start the game")
+
+};
+function setMessage(msg){
+    document.getElementById("message").innerText = msg;
+
+};
+
+function nextMove(square){
+if(square.innerText==""){
+    square.innerText = document.turn;
+switchTurn();
+
+}else{
+    alert("Pick an empty square")
+}
+
+};
+
+const switchTurn =() => {
+if(document.count>=8){
+    alert("draw");
+    startGame();
+}
+if(checkForWinner("X")){
+    alert(document.turn + " won");
+    document.playerOneScore++;
+    updateScore();
+    startGame();
+    
+}else if(checkForWinner("O")){
+    alert(document.turn + " won");
+    document.playerTwoScore++;
+    updateScore();
+    startGame();
+    
+        
+    }
+    else if(document.turn == "X"){
+    document.count++;
+        document.turn = "O";
+setMessage("It's "+ document.turn + "'s turn")
+
+}
+    
+    else{
+    document.count++
+        document.turn = "X";
+        setMessage("It's "+ document.turn + "'s turn")
+
+};
+    
+}
+const checkForWinner = (move)=>{
+    let results = false;
+    if(checkBox(1,2,3,move)|| checkBox(4,5,6,move)||checkBox(7,8,9,move)||checkBox(1,4,7,move)||checkBox(2,5,8,move)||checkBox(3,6,9,move)||checkBox(1,5,9,move)||checkBox(3,5,7,move)){
+    return true;
+}
+return results;
+}
+const checkBox = (a,b,c,move) =>{
+    let results = false;
+    if(getCell(a)== move && getCell(b) == move && getCell(c)== move){
+    return true
+}
+return results;
+}
+const getCell = (number) => {
+    return document.getElementById("q"+ number).innerText;
+}
+
+const clearBoard = (number) => {
+document.getElementById("q"+ number).innerText = "";
+}
+const checkDraw=()=>{
+    let isDraw= false;
+   for(var i=1; i<=9;i++){
+       if(document.getElementById("q"+ i).innerText !== ""){
+            return true;
+                
+            }
+   }
+   return isDraw;
+   
+    
+}
+
+
+const updateScore = () =>
+{
+    document.getElementById("score").innerHTML="Player One- "+document.playerOneScore+" : " +document.playerTwoScore+" -Player Two";
+}
+
+</script>
+<style>* {
+     transition: 1s;
+     color: #fff;
+     background-color: #000;
+         
+     }
+
+body{
+    margin: auto;
+    font-family: sans-serif;
+}
+td{
+    border: 10px solid #333;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+
+.q{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 70px;
+    
+}
+
+.field{
+    margin-top: 10px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table tr:first-child td{
+    border-top: 0;
+}
+table tr:last-child td{
+    border-bottom: 0;
+}
+table tr td:first-child{
+    border-left: 0;
+}
+table tr td:last-child{
+    border-right: 0;
+}
+#message{
+    margin-bottom: 20px
+}
+
+#score{
+    margin-top: 20px;
+}
+</style>
